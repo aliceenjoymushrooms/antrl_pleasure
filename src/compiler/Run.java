@@ -32,7 +32,7 @@ public class Run {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        CharStream fileStream = new ANTLRFileStream("example.in");
+        //CharStream fileStream = new ANTLRFileStream("example.in");
 
 
         Scanner s = new Scanner(System.in);

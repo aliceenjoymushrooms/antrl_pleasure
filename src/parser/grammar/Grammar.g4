@@ -1,8 +1,7 @@
-grammar Calc;
+grammar Grammar;
 
 @header {
 package compiler.parser;
-import compiler.Utils;
 }
 
 lang returns [Integer value]

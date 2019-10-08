@@ -19,8 +19,8 @@ import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
-import compiler.parser.CalcLexer;
-import compiler.parser.CalcParser;
+import compiler.parser.GrammarLexer;
+import compiler.parser.GrammarParser;
 
 /**
  *
@@ -45,16 +45,14 @@ public class Run {
 
     private static Integer parse(String text) throws RecognitionException {
         CharStream input = new ANTLRInputStream(text+"\n");
-        CalcLexer lexer = new CalcLexer(input);
+        GrammarLexer lexer = new GrammarLexer(input);
         TokenStream tokens = new BufferedTokenStream(lexer);
-        CalcParser parser = new CalcParser(tokens);
-        // parser.addErrorListener();
-        parser.addParseListener(new MyCalcListener());
-        CalcParser.LangContext lang = parser.lang();
+        GrammarParser parser = new GrammarParser(tokens);
+        GrammarParser.LangContext lang = parser.lang();
         return lang.value;
     }
 
-      private static void showParseTreeFrame(ParseTree tree, CalcParser parser) throws HeadlessException {
+      private static void showParseTreeFrame(ParseTree tree, GrammarParser parser) throws HeadlessException {
         JFrame frame = new JFrame("SRC: " + tree.getText());
         JPanel panel = new JPanel();
         TreeViewer viewr = new TreeViewer(Arrays.asList(

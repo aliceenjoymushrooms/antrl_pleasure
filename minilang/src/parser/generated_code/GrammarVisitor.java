@@ -13,11 +13,71 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface GrammarVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link GrammarParser#lang}.
+	 * Visit a parse tree produced by {@link GrammarParser#progr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLang(GrammarParser.LangContext ctx);
+	T visitProgr(GrammarParser.ProgrContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code lineRead}
+	 * labeled alternative in {@link GrammarParser#line}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLineRead(GrammarParser.LineReadContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code lineWrite}
+	 * labeled alternative in {@link GrammarParser#line}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLineWrite(GrammarParser.LineWriteContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code lineAtr}
+	 * labeled alternative in {@link GrammarParser#line}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLineAtr(GrammarParser.LineAtrContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code lineIfStm}
+	 * labeled alternative in {@link GrammarParser#line}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLineIfStm(GrammarParser.LineIfStmContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GrammarParser#read}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRead(GrammarParser.ReadContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code writeStr}
+	 * labeled alternative in {@link GrammarParser#write}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWriteStr(GrammarParser.WriteStrContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code writeExpr}
+	 * labeled alternative in {@link GrammarParser#write}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWriteExpr(GrammarParser.WriteExprContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GrammarParser#atr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAtr(GrammarParser.AtrContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GrammarParser#ifstm}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIfstm(GrammarParser.IfstmContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link GrammarParser#expr}.
 	 * @param ctx the parse tree
@@ -31,9 +91,27 @@ public interface GrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTerm(GrammarParser.TermContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link GrammarParser#factor}.
+	 * Visit a parse tree produced by {@link GrammarParser#fact}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFactor(GrammarParser.FactorContext ctx);
+	T visitFact(GrammarParser.FactContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GrammarParser#boolExpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBoolExpr(GrammarParser.BoolExprContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GrammarParser#relop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRelop(GrammarParser.RelopContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GrammarParser#block}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBlock(GrammarParser.BlockContext ctx);
 }

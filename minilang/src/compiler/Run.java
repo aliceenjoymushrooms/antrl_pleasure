@@ -21,6 +21,7 @@ import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import compiler.parser.GrammarLexer;
 import compiler.parser.GrammarParser;
+import compiler.parser.Visitor;
 
 /**
  *
@@ -48,8 +49,12 @@ public class Run {
         GrammarLexer lexer = new GrammarLexer(input);
         TokenStream tokens = new BufferedTokenStream(lexer);
         GrammarParser parser = new GrammarParser(tokens);
-        GrammarParser.LangContext lang = parser.lang();
-        return lang.value;
+        GrammarParser.ProgrContext progr = parser.progr();
+
+        Visitor visitor;
+        visitor.visitProg();
+
+        return 1;//prog.value;
     }
 
       private static void showParseTreeFrame(ParseTree tree, GrammarParser parser) throws HeadlessException {

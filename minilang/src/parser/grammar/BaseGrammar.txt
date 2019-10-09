@@ -35,3 +35,4 @@ block -> line | { prog }
 ---+++++ TOKENS +++++----
 
 NUM // É qualquer numero
+EOL: ';';

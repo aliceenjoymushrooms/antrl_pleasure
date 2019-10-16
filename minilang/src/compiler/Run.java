@@ -49,10 +49,13 @@ public class Run {
         GrammarLexer lexer = new GrammarLexer(input);
         TokenStream tokens = new BufferedTokenStream(lexer);
         GrammarParser parser = new GrammarParser(tokens);
-        GrammarParser.ProgrContext progr = parser.progr();
-
-        Visitor visitor;
-        visitor.visitProg();
+        //GrammarParser.ProgrContext progr = parser.progr();
+        ParseTree tree = parser.progr();
+        Visitor visitor = new Visitor();
+        visitor.visit(tree);
+        
+        //Exibir a arvore
+        showParseTreeFrame(tree, parser);
 
         return 1;//prog.value;
     }

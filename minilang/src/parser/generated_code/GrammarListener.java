@@ -122,35 +122,125 @@ public interface GrammarListener extends ParseTreeListener {
 	 */
 	void exitIfstm(GrammarParser.IfstmContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GrammarParser#expr}.
+	 * Enter a parse tree produced by the {@code exprSum}
+	 * labeled alternative in {@link GrammarParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpr(GrammarParser.ExprContext ctx);
+	void enterExprSum(GrammarParser.ExprSumContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GrammarParser#expr}.
+	 * Exit a parse tree produced by the {@code exprSum}
+	 * labeled alternative in {@link GrammarParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpr(GrammarParser.ExprContext ctx);
+	void exitExprSum(GrammarParser.ExprSumContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GrammarParser#term}.
+	 * Enter a parse tree produced by the {@code exprMinus}
+	 * labeled alternative in {@link GrammarParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterTerm(GrammarParser.TermContext ctx);
+	void enterExprMinus(GrammarParser.ExprMinusContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GrammarParser#term}.
+	 * Exit a parse tree produced by the {@code exprMinus}
+	 * labeled alternative in {@link GrammarParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitTerm(GrammarParser.TermContext ctx);
+	void exitExprMinus(GrammarParser.ExprMinusContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GrammarParser#fact}.
+	 * Enter a parse tree produced by the {@code exprSingle}
+	 * labeled alternative in {@link GrammarParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterFact(GrammarParser.FactContext ctx);
+	void enterExprSingle(GrammarParser.ExprSingleContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GrammarParser#fact}.
+	 * Exit a parse tree produced by the {@code exprSingle}
+	 * labeled alternative in {@link GrammarParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitFact(GrammarParser.FactContext ctx);
+	void exitExprSingle(GrammarParser.ExprSingleContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code termMul}
+	 * labeled alternative in {@link GrammarParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void enterTermMul(GrammarParser.TermMulContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code termMul}
+	 * labeled alternative in {@link GrammarParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void exitTermMul(GrammarParser.TermMulContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code termDiv}
+	 * labeled alternative in {@link GrammarParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void enterTermDiv(GrammarParser.TermDivContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code termDiv}
+	 * labeled alternative in {@link GrammarParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void exitTermDiv(GrammarParser.TermDivContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code termMod}
+	 * labeled alternative in {@link GrammarParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void enterTermMod(GrammarParser.TermModContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code termMod}
+	 * labeled alternative in {@link GrammarParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void exitTermMod(GrammarParser.TermModContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code termSingle}
+	 * labeled alternative in {@link GrammarParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void enterTermSingle(GrammarParser.TermSingleContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code termSingle}
+	 * labeled alternative in {@link GrammarParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void exitTermSingle(GrammarParser.TermSingleContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code factVar}
+	 * labeled alternative in {@link GrammarParser#fact}.
+	 * @param ctx the parse tree
+	 */
+	void enterFactVar(GrammarParser.FactVarContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code factVar}
+	 * labeled alternative in {@link GrammarParser#fact}.
+	 * @param ctx the parse tree
+	 */
+	void exitFactVar(GrammarParser.FactVarContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code factNum}
+	 * labeled alternative in {@link GrammarParser#fact}.
+	 * @param ctx the parse tree
+	 */
+	void enterFactNum(GrammarParser.FactNumContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code factNum}
+	 * labeled alternative in {@link GrammarParser#fact}.
+	 * @param ctx the parse tree
+	 */
+	void exitFactNum(GrammarParser.FactNumContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code factExpr}
+	 * labeled alternative in {@link GrammarParser#fact}.
+	 * @param ctx the parse tree
+	 */
+	void enterFactExpr(GrammarParser.FactExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code factExpr}
+	 * labeled alternative in {@link GrammarParser#fact}.
+	 * @param ctx the parse tree
+	 */
+	void exitFactExpr(GrammarParser.FactExprContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GrammarParser#boolExpr}.
 	 * @param ctx the parse tree

@@ -79,23 +79,75 @@ public interface GrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIfstm(GrammarParser.IfstmContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link GrammarParser#expr}.
+	 * Visit a parse tree produced by the {@code exprSum}
+	 * labeled alternative in {@link GrammarParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpr(GrammarParser.ExprContext ctx);
+	T visitExprSum(GrammarParser.ExprSumContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link GrammarParser#term}.
+	 * Visit a parse tree produced by the {@code exprMinus}
+	 * labeled alternative in {@link GrammarParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTerm(GrammarParser.TermContext ctx);
+	T visitExprMinus(GrammarParser.ExprMinusContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link GrammarParser#fact}.
+	 * Visit a parse tree produced by the {@code exprSingle}
+	 * labeled alternative in {@link GrammarParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFact(GrammarParser.FactContext ctx);
+	T visitExprSingle(GrammarParser.ExprSingleContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code termMul}
+	 * labeled alternative in {@link GrammarParser#term}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTermMul(GrammarParser.TermMulContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code termDiv}
+	 * labeled alternative in {@link GrammarParser#term}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTermDiv(GrammarParser.TermDivContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code termMod}
+	 * labeled alternative in {@link GrammarParser#term}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTermMod(GrammarParser.TermModContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code termSingle}
+	 * labeled alternative in {@link GrammarParser#term}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTermSingle(GrammarParser.TermSingleContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code factVar}
+	 * labeled alternative in {@link GrammarParser#fact}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFactVar(GrammarParser.FactVarContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code factNum}
+	 * labeled alternative in {@link GrammarParser#fact}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFactNum(GrammarParser.FactNumContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code factExpr}
+	 * labeled alternative in {@link GrammarParser#fact}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFactExpr(GrammarParser.FactExprContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link GrammarParser#boolExpr}.
 	 * @param ctx the parse tree

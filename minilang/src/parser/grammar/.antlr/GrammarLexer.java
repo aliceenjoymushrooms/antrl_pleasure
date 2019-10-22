@@ -1,4 +1,4 @@
-// Generated from ./src/parser/grammar/Grammar.g4 by ANTLR 4.7.2
+// Generated from /home/user/src/antrl_pleasure/minilang/src/parser/grammar/Grammar.g4 by ANTLR 4.7.1
 
 package compiler.parser;
 
@@ -13,7 +13,7 @@ import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class GrammarLexer extends Lexer {
-	static { RuntimeMetaData.checkVersion("4.7.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.7.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -31,33 +31,24 @@ public class GrammarLexer extends Lexer {
 		"DEFAULT_MODE"
 	};
 
-	private static String[] makeRuleNames() {
-		return new String[] {
-			"T__0", "TRUE", "FALSE", "READ", "WRITE", "IF", "ELSE", "STR", "VAR", 
-			"GR", "LS", "EQ", "GRT", "LST", "NEQ", "ATR", "OEX", "CEX", "OBL", "CBL", 
-			"NOT", "ADD", "SUB", "MUL", "DIV", "MOD", "NUM", "EOL", "COMMENT", "LINE_COMMENT", 
-			"WS"
-		};
-	}
-	public static final String[] ruleNames = makeRuleNames();
+	public static final String[] ruleNames = {
+		"T__0", "TRUE", "FALSE", "READ", "WRITE", "IF", "ELSE", "STR", "VAR", 
+		"GR", "LS", "EQ", "GRT", "LST", "NEQ", "ATR", "OEX", "CEX", "OBL", "CBL", 
+		"NOT", "ADD", "SUB", "MUL", "DIV", "MOD", "NUM", "EOL", "COMMENT", "LINE_COMMENT", 
+		"WS"
+	};
 
-	private static String[] makeLiteralNames() {
-		return new String[] {
-			null, "'!'", "'true'", "'false'", "'read'", "'write'", "'if'", "'else'", 
-			null, null, "'>'", "'<'", "'=='", "'>='", "'<='", "'!='", "'='", "'('", 
-			"')'", "'{'", "'}'", null, "'+'", "'-'", "'*'", "'/'", "'%'", null, "';'"
-		};
-	}
-	private static final String[] _LITERAL_NAMES = makeLiteralNames();
-	private static String[] makeSymbolicNames() {
-		return new String[] {
-			null, null, "TRUE", "FALSE", "READ", "WRITE", "IF", "ELSE", "STR", "VAR", 
-			"GR", "LS", "EQ", "GRT", "LST", "NEQ", "ATR", "OEX", "CEX", "OBL", "CBL", 
-			"NOT", "ADD", "SUB", "MUL", "DIV", "MOD", "NUM", "EOL", "COMMENT", "LINE_COMMENT", 
-			"WS"
-		};
-	}
-	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
+	private static final String[] _LITERAL_NAMES = {
+		null, "'!'", "'true'", "'false'", "'read'", "'write'", "'if'", "'else'", 
+		null, null, "'>'", "'<'", "'=='", "'>='", "'<='", "'!='", "'='", "'('", 
+		"')'", "'{'", "'}'", null, "'+'", "'-'", "'*'", "'/'", "'%'", null, "';'"
+	};
+	private static final String[] _SYMBOLIC_NAMES = {
+		null, null, "TRUE", "FALSE", "READ", "WRITE", "IF", "ELSE", "STR", "VAR", 
+		"GR", "LS", "EQ", "GRT", "LST", "NEQ", "ATR", "OEX", "CEX", "OBL", "CBL", 
+		"NOT", "ADD", "SUB", "MUL", "DIV", "MOD", "NUM", "EOL", "COMMENT", "LINE_COMMENT", 
+		"WS"
+	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
 	/**

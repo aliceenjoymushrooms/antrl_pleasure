@@ -21,16 +21,18 @@ atr     : VAR '=' expr
 ifstm   : IF '('boolExpr')' block
         | IF '('boolExpr')' block ELSE block
         ;
-expr    : term '+' expr
-        | term '-' expr
+expr    : term '+'? expr #exprSum
+        | term '-' expr #exprMinus
+        | term          #exprSingle
         ;
-term    : fact '*' term
-        | fact '/' term
-        | fact '%' term
+term    : left=fact '*' term #termMul
+        | left=fact '/' term #termDiv
+        | left=fact '%' term #termMod
+        | fact          #termSingle
         ;
-fact    : VAR
-        | NUM
-        | '('expr')'
+fact    : VAR            #factVar
+        | NUM            #factNum
+        | '('val=expr')' #factExpr
         ;
 boolExpr: fact
         | '!'boolExpr
@@ -56,7 +58,6 @@ WRITE       : 'write';
 IF          : 'if';
 ELSE        : 'else';
 STR         : '"'(~["\\\r\n])*'"';
-NUM         : [+-]?[0-9]+('.'[0-9]+)?;
 VAR         : [a-zA-Z][a-zA-Z0-9_]*;
 GR          : '>';
 LS          : '<';
@@ -75,6 +76,7 @@ SUB         : '-';
 MUL         : '*';
 DIV         : '/';
 MOD         : '%';
+NUM         : [+-]?[0-9]+('.'[0-9]+)?;
 EOL         : ';';
 COMMENT     : '/*' .*? '*/' -> skip;
 LINE_COMMENT: '//' ~[\r\n]* -> skip;

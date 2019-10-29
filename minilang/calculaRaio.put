@@ -1,0 +1,5 @@
+write "Entre com o valor do raio para o calculo da área"
+read RAIO;
+write "calculando área = PI * RAIO²"
+AREA = RAIO * RAIO * 3.1415
+write AREA

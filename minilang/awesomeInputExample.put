@@ -1,12 +1,10 @@
 a = 31
-b = 31
+b = a+31
 
-if (a>b){
+if (a>b)
     write "a é maior"
-} else {
-    if (a < b)
-        write "b é maior"
-    else
-        write "são iguais"
-}
+else if (a < b)
+    write "b é maior"
+else
+    write "são iguais"
 

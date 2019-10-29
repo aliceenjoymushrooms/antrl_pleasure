@@ -11,7 +11,7 @@ line    : read          #lineRead
         | atr           #lineAtr
         | ifstm         #lineIfStm
         ;
-read    : READ VAR
+read    : READ VAR ';'
         ;
 write   : WRITE STR     #writeStr
         | WRITE expr    #writeExpr

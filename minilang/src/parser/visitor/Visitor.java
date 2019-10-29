@@ -1,5 +1,7 @@
 package compiler.parser;
 
+import java.util.Scanner;
+
 import compiler.SymbolTable;
 
 public class Visitor extends GrammarBaseVisitor {
@@ -146,7 +148,15 @@ public class Visitor extends GrammarBaseVisitor {
       visit(ctx.b2);
     }
     return null;
-    //return visitChildren(ctx);
+    // return visitChildren(ctx);
+  }
+
+  @Override
+  public Object visitRead(GrammarParser.ReadContext ctx) {
+    Scanner sh = new Scanner(System.in);
+    String newval = sh.nextLine();
+    SymbolTable.getInstance().put(ctx.VAR().getText(), Double.parseDouble(newval));
+    return null;
   }
 
 }

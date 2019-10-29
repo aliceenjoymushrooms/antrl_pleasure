@@ -58,17 +58,17 @@ public class Run {
     public static void main(String[] args) throws IOException {
         // CharStream fileStream = new ANTLRFileStream("example.in");
 
-        Scanner s = new Scanner(System.in);
-        //repl
+        // repl
+        // Scanner s = new Scanner(System.in);
         /*
-        while (s.hasNextLine()) {
-            String input = s.nextLine();
-            Integer r = parse(input);
-            //System.out.println(">>FIM<<");
-        }
-        */
-        
-        //file input
+         * while (s.hasNextLine()) { String input = s.nextLine(); Integer r =
+         * parse(input); }
+         */
+
+        // file input
+        System.out.println("Going to exec: " + args[0]);
+        File file = new File(args[0]);
+        Scanner s = new Scanner(file);
         String input = "";
         while (s.hasNextLine()) {
             input = input + s.nextLine();
@@ -87,7 +87,7 @@ public class Run {
         visitor.visit(tree);
 
         // Exibir a arvore
-        // showParseTreeFrame(tree, parser);
+         showParseTreeFrame(tree, parser);
 
         return 1;// prog.value;
     }

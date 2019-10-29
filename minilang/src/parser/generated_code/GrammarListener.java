@@ -112,15 +112,29 @@ public interface GrammarListener extends ParseTreeListener {
 	 */
 	void exitAtr(GrammarParser.AtrContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GrammarParser#ifstm}.
+	 * Enter a parse tree produced by the {@code ifElseStm}
+	 * labeled alternative in {@link GrammarParser#ifstm}.
 	 * @param ctx the parse tree
 	 */
-	void enterIfstm(GrammarParser.IfstmContext ctx);
+	void enterIfElseStm(GrammarParser.IfElseStmContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GrammarParser#ifstm}.
+	 * Exit a parse tree produced by the {@code ifElseStm}
+	 * labeled alternative in {@link GrammarParser#ifstm}.
 	 * @param ctx the parse tree
 	 */
-	void exitIfstm(GrammarParser.IfstmContext ctx);
+	void exitIfElseStm(GrammarParser.IfElseStmContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ifStm}
+	 * labeled alternative in {@link GrammarParser#ifstm}.
+	 * @param ctx the parse tree
+	 */
+	void enterIfStm(GrammarParser.IfStmContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ifStm}
+	 * labeled alternative in {@link GrammarParser#ifstm}.
+	 * @param ctx the parse tree
+	 */
+	void exitIfStm(GrammarParser.IfStmContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code exprSum}
 	 * labeled alternative in {@link GrammarParser#expr}.
@@ -242,15 +256,41 @@ public interface GrammarListener extends ParseTreeListener {
 	 */
 	void exitFactExpr(GrammarParser.FactExprContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GrammarParser#boolExpr}.
+	 * Enter a parse tree produced by the {@code boolFact}
+	 * labeled alternative in {@link GrammarParser#boolExpr}.
 	 * @param ctx the parse tree
 	 */
-	void enterBoolExpr(GrammarParser.BoolExprContext ctx);
+	void enterBoolFact(GrammarParser.BoolFactContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GrammarParser#boolExpr}.
+	 * Exit a parse tree produced by the {@code boolFact}
+	 * labeled alternative in {@link GrammarParser#boolExpr}.
 	 * @param ctx the parse tree
 	 */
-	void exitBoolExpr(GrammarParser.BoolExprContext ctx);
+	void exitBoolFact(GrammarParser.BoolFactContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code negBoolExpr}
+	 * labeled alternative in {@link GrammarParser#boolExpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterNegBoolExpr(GrammarParser.NegBoolExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code negBoolExpr}
+	 * labeled alternative in {@link GrammarParser#boolExpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitNegBoolExpr(GrammarParser.NegBoolExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code boolRelop}
+	 * labeled alternative in {@link GrammarParser#boolExpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterBoolRelop(GrammarParser.BoolRelopContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code boolRelop}
+	 * labeled alternative in {@link GrammarParser#boolExpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitBoolRelop(GrammarParser.BoolRelopContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GrammarParser#relop}.
 	 * @param ctx the parse tree

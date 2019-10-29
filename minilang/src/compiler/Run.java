@@ -5,7 +5,6 @@
  */
 package compiler;
 
-
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.HeadlessException;
@@ -28,7 +27,6 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
-
 import java.awt.HeadlessException;
 import java.io.IOException;
 import java.util.Arrays;
@@ -46,6 +44,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import compiler.parser.GrammarLexer;
 import compiler.parser.GrammarParser;
 import compiler.parser.Visitor;
+import compiler.SymbolTable;
 
 /**
  *
@@ -60,11 +59,21 @@ public class Run {
         // CharStream fileStream = new ANTLRFileStream("example.in");
 
         Scanner s = new Scanner(System.in);
+        //repl
+        /*
         while (s.hasNextLine()) {
             String input = s.nextLine();
             Integer r = parse(input);
-            System.out.println(">>FIM<<");
+            //System.out.println(">>FIM<<");
         }
+        */
+        
+        //file input
+        String input = "";
+        while (s.hasNextLine()) {
+            input = input + s.nextLine();
+        }
+        Integer r = parse(input);
     }
 
     private static Integer parse(String text) throws RecognitionException {
@@ -78,7 +87,7 @@ public class Run {
         visitor.visit(tree);
 
         // Exibir a arvore
-        showParseTreeFrame(tree, parser);
+        // showParseTreeFrame(tree, parser);
 
         return 1;// prog.value;
     }
@@ -119,5 +128,4 @@ public class Run {
         } catch (Exception e) {
         }
     }
-
 }

@@ -1,5 +1,7 @@
 package compiler.parser;
 
+import compiler.SymbolTable;
+
 public class Visitor extends GrammarBaseVisitor {
   @Override
   public Object visitWriteStr(GrammarParser.WriteStrContext ctx) {
@@ -26,7 +28,7 @@ public class Visitor extends GrammarBaseVisitor {
 
   @Override
   public Object visitFactExpr(GrammarParser.FactExprContext ctx) {
-    double val = (double)visit(ctx.val);
+    double val = (double) visit(ctx.val);
     return val;
   }
 
@@ -69,4 +71,82 @@ public class Visitor extends GrammarBaseVisitor {
 
     return a % b;
   }
+
+  @Override
+  public Object visitAtr(GrammarParser.AtrContext ctx) {
+    Double ret = (double) visit(ctx.expr());
+    SymbolTable.getInstance().put(ctx.VAR().getText(), ret);
+    return visitChildren(ctx);
+  }
+
+  @Override
+  public Object visitFactVar(GrammarParser.FactVarContext ctx) {
+    return SymbolTable.getInstance().get(ctx.VAR().getText());
+    // return visitChildren(ctx);
+  }
+
+  @Override
+  public Object visitBoolFact(GrammarParser.BoolFactContext ctx) {
+    Double ret = (double) visit(ctx.fact());
+    return (ret != 0) ? true : false;
+  }
+
+  @Override
+  public Object visitNegBoolExpr(GrammarParser.NegBoolExprContext ctx) {
+    Double ret = (double) visit(ctx.boolExpr());
+    return (ret == 0) ? false : true;
+  }
+
+  @Override
+  public Object visitRelop(GrammarParser.RelopContext ctx) {
+    return ctx.op.getText();
+  }
+
+  @Override
+  public Object visitBoolRelop(GrammarParser.BoolRelopContext ctx) {
+    Double a = (double) visit(ctx.left);
+    Double b = (double) visit(ctx.right);
+    String op = (String) visit(ctx.relop());
+    // System.out.println("leftop: "+a);
+    // System.out.println("rightop: "+b);
+    // System.out.println("op: "+op);
+    switch (op) {
+    case ">":
+      return a > b;
+    case "<":
+      return a < b;
+    case "==":
+      return a.equals(b);
+    case ">=":
+      return a > b || a.equals(b);
+    case "<=":
+      return a < b || a.equals(b);
+    case "!=":
+      return !a.equals(b);
+    }
+    return null;
+  }
+
+  @Override
+  public Object visitIfStm(GrammarParser.IfStmContext ctx) {
+    if ((boolean) visit(ctx.boolExpr())) {
+      visit(ctx.block());
+    } else {
+      System.out.println("False");
+    }
+    return null;
+    // return visitChildren(ctx);
+  }
+
+  @Override
+  public Object visitIfElseStm(GrammarParser.IfElseStmContext ctx) {
+    if ((boolean) visit(ctx.boolExpr())) {
+      visit(ctx.b1);
+    } else {
+      visit(ctx.b2);
+    }
+    return null;
+    //return visitChildren(ctx);
+  }
+
 }

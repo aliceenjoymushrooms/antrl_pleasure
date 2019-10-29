@@ -4,7 +4,7 @@ grammar Grammar;
 package compiler.parser;
 }
 
-progr   : (line EOL)+
+progr   : (line)+
         ;
 line    : read          #lineRead
         | write         #lineWrite
@@ -18,8 +18,8 @@ write   : WRITE STR     #writeStr
         ;
 atr     : VAR '=' expr
         ;
-ifstm   : IF '('boolExpr')' block
-        | IF '('boolExpr')' block ELSE block
+ifstm   : IF '('boolExpr')' b1=block ELSE b2=block    #ifElseStm
+        | IF '('boolExpr')' block                     #ifStm
         ;
 expr    : term '+'? expr #exprSum
         | term '-' expr #exprMinus
@@ -34,18 +34,16 @@ fact    : VAR            #factVar
         | NUM            #factNum
         | '('val=expr')' #factExpr
         ;
-boolExpr: fact
-        | '!'boolExpr
-        | fact relop fact
-        | TRUE
-        | FALSE
+boolExpr: fact             #boolFact
+        | '!'boolExpr      #negBoolExpr     
+        | left=expr relop right=expr  #boolRelop
         ;
-relop   : '>'
-        | '<'
-        | '=='
-        | '>='
-        | '<='
-        | '!='
+relop   : op='>'
+        | op='<'
+        | op='=='
+        | op='>='
+        | op='<='
+        | op='!='
         ;
 block   : line
         | '{' progr '}'

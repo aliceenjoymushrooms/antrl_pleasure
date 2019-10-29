@@ -126,13 +126,25 @@ public class GrammarBaseListener implements GrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIfstm(GrammarParser.IfstmContext ctx) { }
+	@Override public void enterIfElseStm(GrammarParser.IfElseStmContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIfstm(GrammarParser.IfstmContext ctx) { }
+	@Override public void exitIfElseStm(GrammarParser.IfElseStmContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIfStm(GrammarParser.IfStmContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIfStm(GrammarParser.IfStmContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -258,13 +270,37 @@ public class GrammarBaseListener implements GrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBoolExpr(GrammarParser.BoolExprContext ctx) { }
+	@Override public void enterBoolFact(GrammarParser.BoolFactContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBoolExpr(GrammarParser.BoolExprContext ctx) { }
+	@Override public void exitBoolFact(GrammarParser.BoolFactContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNegBoolExpr(GrammarParser.NegBoolExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNegBoolExpr(GrammarParser.NegBoolExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBoolRelop(GrammarParser.BoolRelopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBoolRelop(GrammarParser.BoolRelopContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

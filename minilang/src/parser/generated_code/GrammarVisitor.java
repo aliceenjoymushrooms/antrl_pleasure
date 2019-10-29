@@ -73,11 +73,19 @@ public interface GrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAtr(GrammarParser.AtrContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link GrammarParser#ifstm}.
+	 * Visit a parse tree produced by the {@code ifElseStm}
+	 * labeled alternative in {@link GrammarParser#ifstm}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIfstm(GrammarParser.IfstmContext ctx);
+	T visitIfElseStm(GrammarParser.IfElseStmContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ifStm}
+	 * labeled alternative in {@link GrammarParser#ifstm}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIfStm(GrammarParser.IfStmContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code exprSum}
 	 * labeled alternative in {@link GrammarParser#expr}.
@@ -149,11 +157,26 @@ public interface GrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFactExpr(GrammarParser.FactExprContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link GrammarParser#boolExpr}.
+	 * Visit a parse tree produced by the {@code boolFact}
+	 * labeled alternative in {@link GrammarParser#boolExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBoolExpr(GrammarParser.BoolExprContext ctx);
+	T visitBoolFact(GrammarParser.BoolFactContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code negBoolExpr}
+	 * labeled alternative in {@link GrammarParser#boolExpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNegBoolExpr(GrammarParser.NegBoolExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code boolRelop}
+	 * labeled alternative in {@link GrammarParser#boolExpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBoolRelop(GrammarParser.BoolRelopContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link GrammarParser#relop}.
 	 * @param ctx the parse tree
